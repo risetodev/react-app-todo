@@ -5,6 +5,7 @@ export const useHeaderStyles = makeStyles({
     display: "flex",
     alignItems: "center",
     paddingTop: "2em",
+    paddingBottom: "2em",
     paddingBlock: "2em"
   },
   titleName: {

@@ -6,6 +6,12 @@ export const useAppStyles = makeStyles({
     display: "flex",
     flexDirection: "column"
   },
+  grid: {
+    display: "flex",
+    flexWrap: "wrap",
+    flexDirection: "row",
+    justifyContent: "center"
+  },
   newTaskButton: {
     position: "fixed",
     alignSelf: "flex-end",
