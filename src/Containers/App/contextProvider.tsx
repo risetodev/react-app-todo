@@ -4,29 +4,11 @@ import App from "./App";
 const initialState: IState = {
   todo: [
     {
-      title: "Misha zaebal",
+      title: "Grocery",
       tasks: [
-        { description: "Pochemu?", checked: false },
-        { description: "Ibo ya nihuya", checked: false },
-        { description: "ne ponimau", checked: false }
-      ],
-      deleteTask: false
-    },
-    {
-      title: "Misha zaebal",
-      tasks: [
-        { description: "Pochemu?", checked: false },
-        { description: "Ibo ya nihuya", checked: false },
-        { description: "ne ponimau", checked: false }
-      ],
-      deleteTask: false
-    },
-    {
-      title: "Misha zaebal",
-      tasks: [
-        { description: "Pochemu?", checked: false },
-        { description: "Ibo ya nihuya", checked: false },
-        { description: "ne ponimau", checked: false }
+        { description: "Juice", checked: false },
+        { description: "Apple", checked: false },
+        { description: "Bread", checked: false }
       ],
       deleteTask: false
     }
@@ -63,6 +45,15 @@ interface IReducerAction {
 
 const reducer = (state: IState, action: IReducerAction) => {
   switch (action.type) {
+    case "update":
+      console.log("State changed: update");
+      return { ...state };
+    case "deleteTask":
+      console.log("State changed: deleteTask");
+      return { ...state };
+    case "deleteDashboard":
+      console.log("State changed: deleteDashboard");
+      return { ...state };
     default:
       return state;
   }
