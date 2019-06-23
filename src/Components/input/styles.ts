@@ -20,6 +20,7 @@ export const useInputStyles = makeStyles(
         bottom: 4,
         transition: "0.5s ease"
       }
-    }
+    },
+    disabled: { textDecoration: "line-through" }
   })
 );

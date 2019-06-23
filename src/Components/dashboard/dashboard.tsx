@@ -40,14 +40,17 @@ export const Dashboard: React.FC<IDashboardProps> = props => {
               className={DashboardStyles.task}
             >
               <Checkbox
+                onChange={() => {
+                  item.checked = !item.checked;
+                }}
                 classes={{ root: DashboardStyles.checkBoxRoot }}
                 color="default"
-                value={"checkedG"}
+                checked={item.checked}
                 inputProps={{
                   "aria-label": "checkbox with default color"
                 }}
               />
-              <Input description={item.description} />
+              <Input disabled={item.checked} description={item.description} />
 
               {isTaskDeleteButton === index && (
                 <IconButton

@@ -1,5 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
+// @ts-ignore
 export const useGridCellStyles = makeStyles({
   cell: {
     backgroundColor: "#fff",
@@ -32,7 +33,10 @@ export const useGridCellStyles = makeStyles({
   },
 
   checkBoxRoot: {
-    padding: 4
+    padding: 4,
+    "& svg": {
+      color: "#000"
+    }
   },
   taskDeleteIconRoot: {
     color: "grey",

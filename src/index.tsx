@@ -3,6 +3,6 @@ import ReactDOM from "react-dom";
 
 import "./index.css";
 
-import App from "./Containers/App/App";
+import { TaskContextProvider } from "./Containers/App/contextProvider";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<TaskContextProvider />, document.getElementById("root"));
