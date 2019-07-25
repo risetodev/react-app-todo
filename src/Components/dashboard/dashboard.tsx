@@ -12,12 +12,11 @@ export const Dashboard: React.FC<IDashboardProps> = props => {
     null
   );
   const [task, setTask] = useState("");
-
-  const handlerTaskDeleteButton = (index: number | null) => () =>
-    setTaskDeleteButton(index);
   const handlerEnterKeyPress = (event: any) => {
     event.key === "Enter" && setTask(event.target.value);
   };
+  const handlerTaskDeleteButton = (index: number | null) => () =>
+    setTaskDeleteButton(index);
 
   return (
     <div className={DashboardStyles.cell}>
