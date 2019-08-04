@@ -3,6 +3,15 @@ import ReactDOM from "react-dom";
 
 import "./index.css";
 
-import { TaskContextProvider } from "./Containers/App/contextProvider";
+import App from "./Containers/App/App";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import { rootReducer } from "./Modules/redux/rootReducer";
 
-ReactDOM.render(<TaskContextProvider />, document.getElementById("root"));
+const store = createStore(rootReducer);
+
+ReactDOM.render(
+
+    <App /> ,
+  document.getElementById("root")
+);

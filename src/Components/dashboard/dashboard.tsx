@@ -2,30 +2,36 @@ import React, { useState } from "react";
 import { useGridCellStyles } from "./styles";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { Checkbox, IconButton } from "@material-ui/core";
-import { IDashboardProps } from "./types";
 import { Input } from "../input/input";
+import { useDispatch } from "react-redux";
+import { dashboardDelete, taskDelete } from "../../Modules/redux/actions";
+import { IDashboard } from "../../Modules/redux/types";
 
-export const Dashboard: React.FC<IDashboardProps> = props => {
+export const Dashboard: React.FC<IDashboard> = props => {
   const DashboardStyles = useGridCellStyles();
 
   const [isTaskDeleteButton, setTaskDeleteButton] = useState<number | null>(
     null
   );
-  const [task, setTask] = useState("");
+
   const handlerEnterKeyPress = (event: any) => {
-    event.key === "Enter" && setTask(event.target.value);
+    //  event.key === "Enter"
   };
+
   const handlerTaskDeleteButton = (index: number | null) => () =>
     setTaskDeleteButton(index);
+
+  const dispatch = useDispatch();
 
   return (
     <div className={DashboardStyles.cell}>
       <div>
         <div className={DashboardStyles.titleContainer}>
-          <Input className={DashboardStyles.title} description={props.title} />
+          <Input className={DashboardStyles.title} defaultValue={props.title} />
           <IconButton
             classes={{ root: DashboardStyles.taskDeleteIconRoot }}
             aria-label="Delete"
+            onClick={() => dispatch(dashboardDelete(props.id))}
           >
             <DeleteIcon color={"disabled"} />
           </IconButton>
@@ -49,24 +55,23 @@ export const Dashboard: React.FC<IDashboardProps> = props => {
                   "aria-label": "checkbox with default color"
                 }}
               />
-              <Input disabled={item.checked} description={item.description} />
-
+              <Input disabled={item.checked} defaultValue={item.description} />
               {isTaskDeleteButton === index && (
                 <IconButton
                   classes={{ root: DashboardStyles.taskDeleteIconRoot }}
                   aria-label="Delete"
+                  onClick={() =>
+                    dispatch(
+                      taskDelete({ dashboardId: props.id, taskId: item.id })
+                    )
+                  }
                 >
                   <DeleteIcon color={"disabled"} fontSize={"small"} />
                 </IconButton>
               )}
             </div>
           ))}
-          {task}
-          <Input
-            onKeyDown={handlerEnterKeyPress}
-            description={task}
-            placeholder={"Add to-do"}
-          />
+          <Input onKeyDown={handlerEnterKeyPress} placeholder={"Add to-do"} />
         </div>
       </div>
     </div>

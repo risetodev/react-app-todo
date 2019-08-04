@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { InputBase } from "@material-ui/core";
 import { useInputStyles } from "./styles";
-import { IInput } from "./types";
+import { InputBaseProps } from "@material-ui/core/InputBase";
 
-export const Input: React.FC<IInput> = ({ description, ...props }) => {
+export const Input: React.FC<InputBaseProps> = ({ ...props }) => {
   const [isUnderLine, setUnderLine] = useState(false);
   const handlerInputUnderLine = () => setUnderLine(prevState => !prevState);
   const InputStyles = useInputStyles({ isUnderLine });
@@ -13,7 +13,6 @@ export const Input: React.FC<IInput> = ({ description, ...props }) => {
       onFocus={handlerInputUnderLine}
       onBlur={handlerInputUnderLine}
       classes={InputStyles}
-      defaultValue={description}
     />
   );
 };
