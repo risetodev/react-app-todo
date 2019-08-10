@@ -1,7 +1,13 @@
 import { reducerWithInitialState } from "typescript-fsa-reducers";
 import { IState } from "./types";
 import uuid from "uuid/v4";
-import { dashboardDelete, taskDelete } from "./actions";
+import {
+  dashboardDelete,
+  taskDelete,
+  addDoTo,
+  editTitle,
+  addNewDashboard
+} from "./actions";
 
 const INITIAL_STATE: IState = {
   dashboards: [
@@ -17,22 +23,6 @@ const INITIAL_STATE: IState = {
   ]
 };
 
-// export const rootReducer = (state: IState = INITIAL_STATE, action: IReducerAction) => {
-//   switch (action.type) {
-//     case "UPDATE":
-//       console.log("State changed: UPDATE");
-//       return { ...state };
-//     case "DELETE_TASK":
-//       console.log("State changed: DELETE_TASK");
-//       return { ...state };
-//     case "DELETE_DASHBOARD":
-//       console.log("State changed: DELETE_DASHBOARD");
-//       return { ...state };
-//     default:
-//       return state;
-//   }
-// };
-
 export const rootReducer = reducerWithInitialState(INITIAL_STATE)
   .case(dashboardDelete, (state, payload) => ({
     dashboards: state.dashboards.filter(item => item.id !== payload)
@@ -46,4 +36,36 @@ export const rootReducer = reducerWithInitialState(INITIAL_STATE)
           }
         : item
     )
+  }))
+  .case(addDoTo, (state, payload) => ({
+    dashboards: state.dashboards.map(item =>
+      item.id === payload.dashboardId
+        ? {
+            ...item,
+            tasks: [
+              ...item.tasks,
+              {
+                id: payload.newTask.id,
+                checked: payload.newTask.checked,
+                description: payload.newTask.description
+              }
+            ]
+          }
+        : item
+    )
+  }))
+  .case(editTitle, (state, payload) => ({
+    dashboards: state.dashboards.map(item =>
+      item.id === payload.dashboardId ? { ...item, title: payload.title } : item
+    )
+  }))
+  .case(addNewDashboard, (state, payload) => ({
+    dashboards: [
+      ...state.dashboards,
+      {
+        id: payload.id,
+        title: payload.title,
+        tasks: payload.tasks
+      }
+    ]
   }));

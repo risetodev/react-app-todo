@@ -1,7 +1,11 @@
 import { Input } from "../input/input";
 import { Button } from "../button/button";
-import React from "react";
+import React, { useState } from "react";
 import { useAppStyles } from "./styles";
+import { useDispatch } from "react-redux";
+import { addNewDashboard } from "../../Modules/redux/actions";
+import uuid from "uuid/v4";
+import { ITasks } from "../../Modules/redux/types";
 
 interface ISideBarProps {
   isAddTaskVisible: boolean;
@@ -12,10 +16,11 @@ export const Sidebar: React.FC<ISideBarProps> = ({
   isAddTaskVisible,
   addTaskHandler
 }) => {
-  const handlerEnterKeyPress = (event: any) => {
-    event.key === "Enter" && console.log("enter");
-  };
   const appStyles = useAppStyles({ isAddTaskVisible });
+  const [title, setTitle] = useState<string>("");
+  const [tasks, setTasks] = useState<ITasks[]>([]);
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className={appStyles.AddTaskForm}>
@@ -28,18 +33,57 @@ export const Sidebar: React.FC<ISideBarProps> = ({
         </a>
         <div>
           <Input
-            onKeyDown={handlerEnterKeyPress}
+            onChange={(event: any) => {
+              setTitle(event.target.value);
+            }}
             className={appStyles.AddTaskFormTitle}
-            defaultValue=""
             placeholder="Add title"
+            value={title}
           />
+          {tasks.map((item, index) => (
+            <Input
+              key={index}
+              defaultValue={item.description}
+              onBlur={(event: any) => {
+                setTasks(
+                  tasks.map(task =>
+                    task.id === item.id
+                      ? {
+                          ...task,
+                          description: event.target.value
+                        }
+                      : task
+                  )
+                );
+              }}
+            />
+          ))}
           <Input
-            onKeyDown={handlerEnterKeyPress}
-            defaultValue=""
+            onBlur={(event: any) => {
+              setTasks([
+                ...tasks,
+                {
+                  id: uuid(),
+                  description: event.target.value,
+                  checked: false
+                }
+              ]);
+              event.target.value = "";
+            }}
             placeholder="Add to-do"
           />
         </div>
-        <Button>Add</Button>
+
+        <Button
+          disabled={!title}
+          onClick={() => {
+            dispatch(addNewDashboard({ tasks, title, id: uuid() }));
+            setTasks([]);
+            setTitle("");
+          }}
+        >
+          Add
+        </Button>
       </div>
       <div className={appStyles.AddTaskFormEffect} />
     </>

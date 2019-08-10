@@ -4,8 +4,14 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import { Checkbox, IconButton } from "@material-ui/core";
 import { Input } from "../input/input";
 import { useDispatch } from "react-redux";
-import { dashboardDelete, taskDelete } from "../../Modules/redux/actions";
+import {
+  addDoTo,
+  dashboardDelete,
+  editTitle,
+  taskDelete
+} from "../../Modules/redux/actions";
 import { IDashboard } from "../../Modules/redux/types";
+import uuid from "uuid/v4";
 
 export const Dashboard: React.FC<IDashboard> = props => {
   const DashboardStyles = useGridCellStyles();
@@ -13,10 +19,6 @@ export const Dashboard: React.FC<IDashboard> = props => {
   const [isTaskDeleteButton, setTaskDeleteButton] = useState<number | null>(
     null
   );
-
-  const handlerEnterKeyPress = (event: any) => {
-    //  event.key === "Enter"
-  };
 
   const handlerTaskDeleteButton = (index: number | null) => () =>
     setTaskDeleteButton(index);
@@ -27,7 +29,22 @@ export const Dashboard: React.FC<IDashboard> = props => {
     <div className={DashboardStyles.cell}>
       <div>
         <div className={DashboardStyles.titleContainer}>
-          <Input className={DashboardStyles.title} defaultValue={props.title} />
+          <Input
+            placeholder={"Dashboard title"}
+            className={DashboardStyles.title}
+            defaultValue={props.title}
+            onKeyDown={(event: any) => {
+              if (event.key === "Enter") {
+                dispatch(
+                  editTitle({
+                    dashboardId: props.id,
+                    title: event.target.value
+                  })
+                );
+                event.target.blur();
+              }
+            }}
+          />
           <IconButton
             classes={{ root: DashboardStyles.taskDeleteIconRoot }}
             aria-label="Delete"
@@ -71,7 +88,25 @@ export const Dashboard: React.FC<IDashboard> = props => {
               )}
             </div>
           ))}
-          <Input onKeyDown={handlerEnterKeyPress} placeholder={"Add to-do"} />
+          <Input
+            onKeyDown={(event: any) => {
+              if (event.key === "Enter") {
+                dispatch(
+                  addDoTo({
+                    dashboardId: props.id,
+                    newTask: {
+                      id: uuid(),
+                      checked: false,
+                      description: event.target.value
+                    }
+                  })
+                );
+                event.target.value = "";
+                event.target.blur();
+              }
+            }}
+            placeholder={"Add to-do"}
+          />
         </div>
       </div>
     </div>
