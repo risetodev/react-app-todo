@@ -6,7 +6,8 @@ import {
   taskDelete,
   addDoTo,
   editTitle,
-  addNewDashboard
+  addNewDashboard,
+  editTask
 } from "./actions";
 
 const INITIAL_STATE: IState = {
@@ -69,4 +70,22 @@ export const rootReducer = reducerWithInitialState(INITIAL_STATE)
         tasks: payload.tasks
       }
     ]
+  }))
+  .case(editTask, (state, payload) => ({
+    dashboards: state.dashboards.map(item =>
+      item.id === payload.dashboardId
+        ? {
+            ...item,
+            tasks: item.tasks.map(task =>
+              task.id === payload.task.id
+                ? {
+                    ...task,
+                    description: payload.task.description,
+                    checked: payload.task.checked
+                  }
+                : task
+            )
+          }
+        : item
+    )
   }));

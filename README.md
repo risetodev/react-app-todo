@@ -4,16 +4,16 @@
 
 ## Main page
 
-![screenshots](https://github.com/RiseToDev/digis-test-intern/blob/master/screenshots/1.png)
+![screenshots](https://github.com/RiseToDev/react-app-todo/blob/master/screenshots/1.jpg)
 
 ## Add new Dashboard and tasks
 
-![screenshots](https://github.com/RiseToDev/digis-test-intern/blob/master/screenshots/2.png)
-![screenshots](https://github.com/RiseToDev/digis-test-intern/blob/master/screenshots/3.png)
+![screenshots](https://github.com/RiseToDev/react-app-todo/blob/master/screenshots/2.png)
+![screenshots](https://github.com/RiseToDev/react-app-todo/blob/master/screenshots/3.png)
 
 ## Main page after added dashboards
 
-![screenshots](https://github.com/RiseToDev/digis-test-intern/blob/master/screenshots/4.png)
+![screenshots](https://github.com/RiseToDev/react-app-todo/blob/master/screenshots/4.png)
 
 # In the project directory, you can run:
 

@@ -1,10 +1,10 @@
 export interface IDashboard {
   id: string;
   title: string;
-  tasks: ITasks[];
+  tasks: ITask[];
 }
 
-export interface ITasks {
+export interface ITask {
   id: string;
   checked: boolean;
   description: string;

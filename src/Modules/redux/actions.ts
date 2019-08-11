@@ -1,5 +1,5 @@
 import actionCreatorFactory from "typescript-fsa";
-import { IDashboard, ITasks } from "./types";
+import { IDashboard, ITask } from "./types";
 
 const actionCreator = actionCreatorFactory();
 
@@ -12,7 +12,7 @@ export const taskDelete = actionCreator<{
 
 export const addDoTo = actionCreator<{
   dashboardId: string;
-  newTask: ITasks;
+  newTask: ITask;
 }>("ADD_TODO");
 
 export const editTitle = actionCreator<{ dashboardId: string; title: string }>(
@@ -20,3 +20,7 @@ export const editTitle = actionCreator<{ dashboardId: string; title: string }>(
 );
 
 export const addNewDashboard = actionCreator<IDashboard>("ADD_NEW_DASHBOARD");
+
+export const editTask = actionCreator<{ dashboardId: string; task: ITask }>(
+  "EDIT_TASK"
+);
