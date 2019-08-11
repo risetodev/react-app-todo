@@ -34,9 +34,16 @@ export const useAppStyles = makeStyles({
     opacity: 0.5
   },
   closeAddTaskFrom: {
-    fontSize: "4em",
+    height: "10vh",
+    border: "none",
+    "&:focus": {
+      outline: "none"
+    },
+    fontSize: "5em",
     color: "#000",
-    textDecoration: "none",
+    transform: "rotate(45deg)",
+    cursor: "pointer",
+    backgroundColor: "transparent",
     visibility: (props: IAddTaskButton) =>
       props.isAddTaskVisible ? "visible" : "hidden"
   },

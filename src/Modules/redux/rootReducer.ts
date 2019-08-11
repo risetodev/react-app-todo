@@ -13,11 +13,12 @@ const INITIAL_STATE: IState = {
   dashboards: [
     {
       id: uuid(),
-      title: "Grocery",
+      title: "Groceries for lunch",
       tasks: [
-        { id: uuid(), description: "Juice", checked: false },
         { id: uuid(), description: "Apple", checked: false },
-        { id: uuid(), description: "Bread", checked: false }
+        { id: uuid(), description: "Juice", checked: false },
+        { id: uuid(), description: "Bread", checked: true },
+        { id: uuid(), description: "Eggs", checked: false }
       ]
     }
   ]

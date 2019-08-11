@@ -1,8 +1,21 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# react-app-todo
 
-## Available Scripts
+# Screenshots
 
-In the project directory, you can run:
+## Main page
+
+![screenshots](https://github.com/RiseToDev/digis-test-intern/blob/master/screenshots/1.png)
+
+## Add new Dashboard and tasks
+
+![screenshots](https://github.com/RiseToDev/digis-test-intern/blob/master/screenshots/2.png)
+![screenshots](https://github.com/RiseToDev/digis-test-intern/blob/master/screenshots/3.png)
+
+## Main page after added dashboards
+
+![screenshots](https://github.com/RiseToDev/digis-test-intern/blob/master/screenshots/4.png)
+
+# In the project directory, you can run:
 
 ### `npm start`
 

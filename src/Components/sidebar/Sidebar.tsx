@@ -24,13 +24,14 @@ export const Sidebar: React.FC<ISideBarProps> = ({
   return (
     <>
       <div className={appStyles.AddTaskForm}>
-        <a
-          href="javascript:void(0)"
-          className={appStyles.closeAddTaskFrom}
-          onClick={() => addTaskHandler()}
-        >
-          &times;
-        </a>
+        <span>
+          <button
+            onClick={() => addTaskHandler()}
+            className={appStyles.closeAddTaskFrom}
+          >
+            +
+          </button>
+        </span>
         <div>
           <Input
             onChange={(event: any) => {
@@ -60,15 +61,17 @@ export const Sidebar: React.FC<ISideBarProps> = ({
           ))}
           <Input
             onBlur={(event: any) => {
-              setTasks([
-                ...tasks,
-                {
-                  id: uuid(),
-                  description: event.target.value,
-                  checked: false
-                }
-              ]);
-              event.target.value = "";
+              if (event.target.value) {
+                setTasks([
+                  ...tasks,
+                  {
+                    id: uuid(),
+                    description: event.target.value,
+                    checked: false
+                  }
+                ]);
+                event.target.value = "";
+              }
             }}
             placeholder="Add to-do"
           />
