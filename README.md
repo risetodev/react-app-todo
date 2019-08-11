@@ -8,12 +8,12 @@
 
 ## Add new Dashboard and tasks
 
-![screenshots](https://github.com/RiseToDev/react-app-todo/blob/master/screenshots/2.png)
-![screenshots](https://github.com/RiseToDev/react-app-todo/blob/master/screenshots/3.png)
+![screenshots](https://github.com/RiseToDev/react-app-todo/blob/master/screenshots/2.jpg)
+![screenshots](https://github.com/RiseToDev/react-app-todo/blob/master/screenshots/3.jpg)
 
 ## Main page after added dashboards
 
-![screenshots](https://github.com/RiseToDev/react-app-todo/blob/master/screenshots/4.png)
+![screenshots](https://github.com/RiseToDev/react-app-todo/blob/master/screenshots/4.jpg)
 
 # In the project directory, you can run:
 
