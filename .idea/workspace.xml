@@ -3,16 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="20eed4b2-f39f-48d0-8bd9-38373188901d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/button/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/button/button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/dashboard/dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/dashboard/dashboard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/header/types.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/input/input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/input/input.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/input/types.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/sidebar/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/sidebar/Sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/redux/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/redux/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/redux/rootReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/redux/rootReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Modules/redux/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Modules/redux/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -133,6 +124,7 @@
       <workItem from="1565508767346" duration="20000" />
       <workItem from="1565508798883" duration="3005000" />
       <workItem from="1565513717140" duration="3982000" />
+      <workItem from="1565517967626" duration="606000" />
     </task>
     <servers />
   </component>
